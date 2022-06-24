@@ -26,3 +26,31 @@ C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\refint\apiToDo.dll
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\apiToDo.pdb
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\apiToDo.genruntimeconfig.cache
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\ref\apiToDo.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\appsettings.Development.json
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\appsettings.json
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.exe
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.deps.json
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.runtimeconfig.json
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.runtimeconfig.dev.json
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\apiToDo.pdb
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.csproj.AssemblyReference.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.AssemblyInfoInputs.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.AssemblyInfo.cs
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.csproj.CoreCompileInputs.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.MvcApplicationPartsAssemblyInfo.cs
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.MvcApplicationPartsAssemblyInfo.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\scopedcss\bundle\apiToDo.styles.css
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\staticwebassets\apiToDo.StaticWebAssets.Manifest.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.RazorTargetAssemblyInfo.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.csproj.CopyComplete
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.dll
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\refint\apiToDo.dll
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.pdb
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.genruntimeconfig.cache
+C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\ref\apiToDo.dll
