@@ -136,7 +136,7 @@ namespace apiToDo.Controllers
                 {
                     StatusCode = 400,
                     ContentType = "application/json",
-                    Content = $"Ocorreu um erro em sua API {ex.Message}"
+                    Content = $"Ocorreu um erro em sua API: {ex.Message}"
                 };
             }
         }

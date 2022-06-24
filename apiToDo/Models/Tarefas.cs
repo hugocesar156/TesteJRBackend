@@ -77,9 +77,14 @@ namespace apiToDo.Models
             {
                 var lista = Listar();
                 var item = lista.FirstOrDefault(l => l.IdTarefa == tarefa.IdTarefa);
-                item.Descricao = tarefa.Descricao;
 
-                return true;
+                if (item != null)
+                {
+                    item.Descricao = tarefa.Descricao;
+                    return true;
+                }
+
+                throw new Exception("Falha ao atualizar registro de tarefa, tente novamente.");
             }
             catch (Exception ex)
             {
