@@ -54,3 +54,4 @@ C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\refint\apiToDo.dll
 C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.pdb
 C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\apiToDo.genruntimeconfig.cache
 C:\Projetos\Prova back-end\apiToDo\obj\Debug\net5.0\ref\apiToDo.dll
+C:\Projetos\Prova back-end\apiToDo\bin\Debug\net5.0\Newtonsoft.Json.dll
