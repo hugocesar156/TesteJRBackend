@@ -36,14 +36,14 @@ namespace apiToDo.Models
             }
         }
 
-        public List<TarefaDTO> Inserir(TarefaDTO tarefa)
+        public bool Inserir(TarefaDTO tarefa)
         {
             try
             {
                 var lista = Listar();
                 lista.Add(tarefa);
 
-                return lista;
+                return true;
             }
             catch(Exception ex)
             {

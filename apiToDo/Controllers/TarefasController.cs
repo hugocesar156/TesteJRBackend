@@ -50,14 +50,20 @@ namespace apiToDo.Controllers
         {
             try
             {
-                var lista = _tarefas.Inserir(tarefa);
-
-                return new ContentResult
+                if (_tarefas.Inserir(tarefa))
                 {
-                    StatusCode = 200,
-                    ContentType = "application/json",
-                    Content = JsonConvert.SerializeObject(lista)
-                };
+                    var lista = _tarefas.Listar();
+                    lista.Add(tarefa);
+
+                    return new ContentResult
+                    {
+                        StatusCode = 200,
+                        ContentType = "application/json",
+                        Content = JsonConvert.SerializeObject(lista)
+                    };
+                }
+
+                throw new Exception();
             }
             catch (Exception ex)
             {
