@@ -36,12 +36,14 @@ namespace apiToDo.Models
             }
         }
 
-        public void Inserir(TarefaDTO Request)
+        public List<TarefaDTO> Inserir(TarefaDTO tarefa)
         {
             try
             {
-                List<TarefaDTO> lstResponse = Listar();
-                lstResponse.Add(Request);
+                var lista = Listar();
+                lista.Add(tarefa);
+
+                return lista;
             }
             catch(Exception ex)
             {
