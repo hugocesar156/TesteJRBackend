@@ -7,31 +7,28 @@ namespace apiToDo.Models
 {
     public class Tarefas
     {
-        public List<TarefaDTO> lstTarefas()
+        public List<TarefaDTO> Listar()
         {
             try
             {
-                List<TarefaDTO> lstTarefas = new List<TarefaDTO>();
-
-                lstTarefas.Add(new TarefaDTO
+                return new List<TarefaDTO>
                 {
-                    ID_TAREFA = 1,
-                    DS_TAREFA = "Fazer Compras"
-                });
-
-                lstTarefas.Add(new TarefaDTO
-                {
-                    ID_TAREFA = 2,
-                    DS_TAREFA = "Fazer Atividad Faculdade"
-                });
-
-                lstTarefas.Add(new TarefaDTO
-                {
-                    ID_TAREFA = 3,
-                    DS_TAREFA = "Subir Projeto de Teste no GitHub"
-                });
-
-                return new List<TarefaDTO>();
+                    new TarefaDTO
+                    {
+                        ID_TAREFA = 1,
+                        DS_TAREFA = "Fazer Compras"
+                    },
+                    new TarefaDTO
+                    {
+                        ID_TAREFA = 2,
+                        DS_TAREFA = "Fazer Atividad Faculdade"
+                    },
+                    new TarefaDTO
+                    {
+                        ID_TAREFA = 3,
+                        DS_TAREFA = "Subir Projeto de Teste no GitHub"
+                    }
+                };
             }
             catch(Exception ex)
             {
@@ -39,12 +36,11 @@ namespace apiToDo.Models
             }
         }
 
-
-        public void InserirTarefa(TarefaDTO Request)
+        public void Inserir(TarefaDTO Request)
         {
             try
             {
-                List<TarefaDTO> lstResponse = lstTarefas();
+                List<TarefaDTO> lstResponse = Listar();
                 lstResponse.Add(Request);
             }
             catch(Exception ex)
@@ -52,11 +48,12 @@ namespace apiToDo.Models
                 throw ex;
             }
         }
-        public void DeletarTarefa(int ID_TAREFA)
+
+        public void Deletar(int ID_TAREFA)
         {
             try
             {
-                List<TarefaDTO> lstResponse = lstTarefas();
+                List<TarefaDTO> lstResponse = Listar();
                 var Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
                 TarefaDTO Tarefa2 = lstResponse.Where(x=> x.ID_TAREFA == Tarefa.ID_TAREFA).FirstOrDefault();
                 lstResponse.Remove(Tarefa2);
