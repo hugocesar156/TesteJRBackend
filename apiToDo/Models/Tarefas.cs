@@ -15,18 +15,18 @@ namespace apiToDo.Models
                 {
                     new TarefaDTO
                     {
-                        ID_TAREFA = 1,
-                        DS_TAREFA = "Fazer Compras"
+                        IdTarefa = 1,
+                        Descricao = "Fazer Compras"
                     },
                     new TarefaDTO
                     {
-                        ID_TAREFA = 2,
-                        DS_TAREFA = "Fazer Atividad Faculdade"
+                        IdTarefa = 2,
+                        Descricao = "Fazer Atividad Faculdade"
                     },
                     new TarefaDTO
                     {
-                        ID_TAREFA = 3,
-                        DS_TAREFA = "Subir Projeto de Teste no GitHub"
+                        IdTarefa = 3,
+                        Descricao = "Subir Projeto de Teste no GitHub"
                     }
                 };
             }
@@ -56,7 +56,7 @@ namespace apiToDo.Models
             try
             {
                 var lista = Listar();
-                var tarefa = lista.FirstOrDefault(l => l.ID_TAREFA == idTarefa);
+                var tarefa = lista.FirstOrDefault(l => l.IdTarefa == idTarefa);
 
                 lista.Remove(tarefa);
                 return lista;
