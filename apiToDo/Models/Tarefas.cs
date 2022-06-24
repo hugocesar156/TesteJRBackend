@@ -59,16 +59,23 @@ namespace apiToDo.Models
             }
         }
 
+        //o método de remoção recebe o ID do registro que deve ser removido na lista
         public bool Deletar(int idTarefa)
         {
             try
             {
+                //a lista é carregada
                 var lista = Listar();
+
+                //é feito a busca do item na lista com o ID informado
                 var tarefa = lista.FirstOrDefault(l => l.IdTarefa == idTarefa);
 
+                /* é feito a validação de remoção, em caso de sucesso o método retornará true, 
+                indicando que o registro foi removido com sucesso */
                 if (lista.Remove(tarefa))
                     return true;
 
+                //em caso de falha uma exceção será lançada
                 throw new Exception("Falha ao remover registro de tarefa, tente novamente.");
             }
             catch (Exception ex)
