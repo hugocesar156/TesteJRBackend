@@ -91,5 +91,17 @@ namespace apiToDo.Models
                 throw ex;
             }
         }
+
+        public TarefaDTO Buscar(int idTarefa)
+        {
+            try
+            {
+                return Listar().FirstOrDefault(l => l.IdTarefa == idTarefa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

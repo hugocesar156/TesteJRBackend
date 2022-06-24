@@ -19,7 +19,6 @@ namespace apiToDo.Controllers
             _tarefas = tarefas;
         }
 
-        //[Authorize]
         [HttpGet("Listar")]
         public ContentResult Listar()
         {
@@ -129,6 +128,31 @@ namespace apiToDo.Controllers
                 }
 
                 throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API: {ex.Message}"
+                };
+            }
+        }
+
+        [HttpGet("Buscar/{idTarefa}")]
+        public ContentResult Buscar(int idTarefa)
+        {
+            try
+            {
+                var tarefa = _tarefas.Buscar(idTarefa);
+
+                return new ContentResult
+                {
+                    StatusCode = 200,
+                    ContentType = "application/json",
+                    Content = JsonConvert.SerializeObject(tarefa)
+                };
             }
             catch (Exception ex)
             {
