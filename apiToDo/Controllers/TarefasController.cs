@@ -21,7 +21,7 @@ namespace apiToDo.Controllers
 
         //[Authorize]
         [HttpGet("Listar")]
-        public ActionResult Listar()
+        public ContentResult Listar()
         {
             try
             {
@@ -46,14 +46,13 @@ namespace apiToDo.Controllers
         }
 
         [HttpPost("Inserir")]
-        public ActionResult Inserir([FromBody] TarefaDTO tarefa)
+        public ContentResult Inserir([FromBody] TarefaDTO tarefa)
         {
             try
             {
                 if (_tarefas.Inserir(tarefa))
                 {
                     var lista = _tarefas.Listar();
-                    lista.Add(tarefa);
 
                     return new ContentResult
                     {
@@ -78,7 +77,7 @@ namespace apiToDo.Controllers
 
         //aqui é definido o caminho para a rota de remoção de tarefa, o ID da tarefa é obrigatório
         [HttpDelete("Deletar/{idTarefa}")]
-        public ActionResult Deletar(int idTarefa)
+        public ContentResult Deletar(int idTarefa)
         {
             try
             {
@@ -87,10 +86,6 @@ namespace apiToDo.Controllers
                 {
                     //em caso de sucesso, é carregado a lista atualizada 
                     var lista = _tarefas.Listar();
-
-                    /* aqui é feito a remoção do item novamente, necessário somente
-                    pelo motido da lista estar em hardcode */
-                    lista.Remove(lista.FirstOrDefault(l => l.IdTarefa == idTarefa));
 
                     //então a lista é retornada
                     return new ContentResult
@@ -112,6 +107,36 @@ namespace apiToDo.Controllers
                     StatusCode = 400,
                     ContentType = "application/json",
                     Content = $"Ocorreu um erro em sua API: {ex.Message}"
+                };
+            }
+        }
+
+        [HttpPut("Atualizar")]
+        public ContentResult Atualizar([FromBody] TarefaDTO tarefa)
+        {
+            try
+            {
+                if (_tarefas.Atualizar(tarefa))
+                {
+                    var lista = _tarefas.Listar();
+
+                    return new ContentResult
+                    {
+                        StatusCode = 200,
+                        ContentType = "application/json",
+                        Content = JsonConvert.SerializeObject(lista)
+                    };
+                }
+
+                throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API {ex.Message}"
                 };
             }
         }
