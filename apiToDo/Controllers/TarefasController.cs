@@ -19,97 +19,6 @@ namespace apiToDo.Controllers
             _tarefas = tarefas;
         }
 
-        [HttpGet("Listar")]
-        public ContentResult Listar()
-        {
-            try
-            {
-                var lista = _tarefas.Listar();
-
-                return new ContentResult
-                {
-                    StatusCode = 200,
-                    ContentType = "application/json",
-                    Content = JsonConvert.SerializeObject(lista)
-                };
-            }
-            catch (Exception ex)
-            {
-                return new ContentResult
-                {
-                    StatusCode = 400,
-                    ContentType = "application/json",
-                    Content = $"Ocorreu um erro em sua API {ex.Message}"
-                };
-            }
-        }
-
-        [HttpPost("Inserir")]
-        public ContentResult Inserir([FromBody] TarefaDTO tarefa)
-        {
-            try
-            {
-                if (_tarefas.Inserir(tarefa))
-                {
-                    var lista = _tarefas.Listar();
-
-                    return new ContentResult
-                    {
-                        StatusCode = 200,
-                        ContentType = "application/json",
-                        Content = JsonConvert.SerializeObject(lista)
-                    };
-                }
-
-                throw new Exception();
-            }
-            catch (Exception ex)
-            {
-                return new ContentResult
-                {
-                    StatusCode = 400,
-                    ContentType = "application/json",
-                    Content = $"Ocorreu um erro em sua API {ex.Message}"
-                };
-            }
-        }
-
-        //aqui é definido o caminho para a rota de remoção de tarefa, o ID da tarefa é obrigatório
-        [HttpDelete("Deletar/{idTarefa}")]
-        public ContentResult Deletar(int idTarefa)
-        {
-            try
-            {
-                //aqui é feito a validação de remoção de registro
-                if (_tarefas.Deletar(idTarefa))
-                {
-                    //em caso de sucesso, é carregado a lista atualizada 
-                    var lista = _tarefas.Listar();
-
-                    //então a lista é retornada
-                    return new ContentResult
-                    {
-                        StatusCode = 200,
-                        ContentType = "application/json",
-                        Content = JsonConvert.SerializeObject(lista)
-                    };
-                }
-
-                //em caso de erro, uma exceção é lançada 
-                throw new Exception();
-            }
-            catch (Exception ex)
-            {
-                //será retornado uma mensagem de erro com o detalhamento do problema
-                return new ContentResult
-                {
-                    StatusCode = 400,
-                    ContentType = "application/json",
-                    Content = $"Ocorreu um erro em sua API: {ex.Message}"
-                };
-            }
-        }
-
         [HttpPut("Atualizar")]
         public ContentResult Atualizar([FromBody] TarefaDTO tarefa)
         {
@@ -161,6 +70,97 @@ namespace apiToDo.Controllers
                     StatusCode = 400,
                     ContentType = "application/json",
                     Content = $"Ocorreu um erro em sua API: {ex.Message}"
+                };
+            }
+        }
+
+        //aqui é definido o caminho para a rota de remoção de tarefa, o ID da tarefa é obrigatório
+        [HttpDelete("Deletar/{idTarefa}")]
+        public ContentResult Deletar(int idTarefa)
+        {
+            try
+            {
+                //aqui é feito a validação de remoção de registro
+                if (_tarefas.Deletar(idTarefa))
+                {
+                    //em caso de sucesso, é carregado a lista atualizada 
+                    var lista = _tarefas.Listar();
+
+                    //então a lista é retornada
+                    return new ContentResult
+                    {
+                        StatusCode = 200,
+                        ContentType = "application/json",
+                        Content = JsonConvert.SerializeObject(lista)
+                    };
+                }
+
+                //em caso de erro, uma exceção é lançada 
+                throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                //será retornado uma mensagem de erro com o detalhamento do problema
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API: {ex.Message}"
+                };
+            }
+        }
+
+        [HttpPost("Inserir")]
+        public ContentResult Inserir([FromBody] TarefaDTO tarefa)
+        {
+            try
+            {
+                if (_tarefas.Inserir(tarefa))
+                {
+                    var lista = _tarefas.Listar();
+
+                    return new ContentResult
+                    {
+                        StatusCode = 200,
+                        ContentType = "application/json",
+                        Content = JsonConvert.SerializeObject(lista)
+                    };
+                }
+
+                throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API {ex.Message}"
+                };
+            }
+        }
+
+        [HttpGet("Listar")]
+        public ContentResult Listar()
+        {
+            try
+            {
+                var lista = _tarefas.Listar();
+
+                return new ContentResult
+                {
+                    StatusCode = 200,
+                    ContentType = "application/json",
+                    Content = JsonConvert.SerializeObject(lista)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API {ex.Message}"
                 };
             }
         }
