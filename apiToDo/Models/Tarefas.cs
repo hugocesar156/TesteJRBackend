@@ -51,15 +51,17 @@ namespace apiToDo.Models
             }
         }
 
-        public List<TarefaDTO> Deletar(int idTarefa)
+        public bool Deletar(int idTarefa)
         {
             try
             {
                 var lista = Listar();
                 var tarefa = lista.FirstOrDefault(l => l.IdTarefa == idTarefa);
 
-                lista.Remove(tarefa);
-                return lista;
+                if (lista.Remove(tarefa))
+                    return true;
+
+                throw new Exception("Falha ao remover registro de tarefa, tente novamente.");
             }
             catch(Exception ex)
             {
