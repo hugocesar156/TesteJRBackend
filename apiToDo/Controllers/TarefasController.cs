@@ -2,6 +2,7 @@
 using apiToDo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 
 namespace apiToDo.Controllers
@@ -10,19 +11,36 @@ namespace apiToDo.Controllers
     [Route("[controller]")]
     public class TarefasController : ControllerBase
     {
-        [Authorize]
-        [HttpPost("lstTarefas")]
-        public ActionResult lstTarefas()
+        private readonly Tarefas _tarefas;
+
+        public TarefasController(Tarefas tarefas)
+        {
+            _tarefas = tarefas;
+        }
+
+        //[Authorize]
+        [HttpGet("Listar")]
+        public ActionResult Listar()
         {
             try
             {
-              
-                return StatusCode(200);
-            }
+                var lista = _tarefas.Listar();
 
+                return new ContentResult
+                {
+                    StatusCode = 200,
+                    ContentType = "application/json",
+                    Content = JsonConvert.SerializeObject(lista)
+                };
+            }
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}"});
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API {ex.Message}"
+                };
             }
         }
 
