@@ -69,18 +69,28 @@ namespace apiToDo.Controllers
             }
         }
 
-        [HttpGet("DeletarTarefa")]
-        public ActionResult DeleteTask([FromQuery] int ID_TAREFA)
+        [HttpDelete("Deletar/{idTarefa}")]
+        public ActionResult Deletar(int idTarefa)
         {
             try
             {
+                var lista = _tarefas.Deletar(idTarefa);
 
-                return StatusCode(200);
+                return new ContentResult
+                {
+                    StatusCode = 200,
+                    ContentType = "application/json",
+                    Content = JsonConvert.SerializeObject(lista)
+                };
             }
-
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+                return new ContentResult
+                {
+                    StatusCode = 400,
+                    ContentType = "application/json",
+                    Content = $"Ocorreu um erro em sua API {ex.Message}"
+                };
             }
         }
     }

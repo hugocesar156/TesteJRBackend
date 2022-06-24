@@ -51,14 +51,15 @@ namespace apiToDo.Models
             }
         }
 
-        public void Deletar(int ID_TAREFA)
+        public List<TarefaDTO> Deletar(int idTarefa)
         {
             try
             {
-                List<TarefaDTO> lstResponse = Listar();
-                var Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
-                TarefaDTO Tarefa2 = lstResponse.Where(x=> x.ID_TAREFA == Tarefa.ID_TAREFA).FirstOrDefault();
-                lstResponse.Remove(Tarefa2);
+                var lista = Listar();
+                var tarefa = lista.FirstOrDefault(l => l.ID_TAREFA == idTarefa);
+
+                lista.Remove(tarefa);
+                return lista;
             }
             catch(Exception ex)
             {
